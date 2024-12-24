@@ -13,31 +13,30 @@ part 'state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   late ItuneRepository ituneRepository;
-  HomeBloc() : super(const HomeState(status: HomeStatus.loading, musics: [])) {
+  HomeBloc() : super(const HomeState(status: HomeStatus.loading, musics: [], recordCount: 0)) {
     on<HomeInitialEvent>(init);
     on<HomeFetchEvent>(fetchSong);
   }
 
-  void init(HomeInitialEvent event, Emitter<HomeState> emit) async {
+  Future<void> init(HomeInitialEvent event, Emitter<HomeState> emit) async {
     talker.debug("[Init Bloc Home Bloc]");
     ituneRepository = ItuneRepository();
-    emit(HomeState(musics: [], status: HomeStatus.loading));
+    await fetchSong(HomeFetchEvent(limit: 200), emit);
   }
 
   /// Fetch Itune Song, path parameter is for testing that with empty result response
   /// (path parameter will be deleted when merging into main).
-  void fetchSong(HomeFetchEvent event, Emitter<HomeState> emit) async {
+  Future<void> fetchSong(HomeFetchEvent event, Emitter<HomeState> emit) async {
     try {
+      await Future.delayed(Duration(seconds: 2));
       ItuneResponse temp = await ituneRepository.getSongs(path: event.path, limit: event.limit);
       if (temp.resultCount > 0) {
-        emit(HomeState(musics: temp.results ?? [], status: HomeStatus.success));
+        emit(HomeState(musics: temp.results ?? [], status: HomeStatus.success, recordCount: temp.resultCount));
       } else {
-        emit(HomeState(musics: temp.results ?? [], status: HomeStatus.empty));
+        emit(HomeState(musics: temp.results ?? [], status: HomeStatus.empty, recordCount: 0));
       }
     } catch (e) {
-      emit(HomeState(musics: [], status: HomeStatus.failure));
+      emit(HomeState(musics: [], status: HomeStatus.failure, recordCount: 0));
     }
   }
-
-  static BlocProvider get expose => BlocProvider(create: (context) => HomeBloc()..add(HomeInitialEvent()), lazy: false);
 }
