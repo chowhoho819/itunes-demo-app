@@ -21,15 +21,10 @@ class DioClient {
     talker.debug("[DIO] Created");
   }
 
-  Future<ResponseType> get<ResponseType>(String path, {Map<String, dynamic>? queryParameters}) async {
+  Future get(String path, {Map<String, dynamic>? queryParameters}) async {
     final response = await dio.get(path, queryParameters: queryParameters);
     talker.debug(response.runtimeType);
-    return response.data as ResponseType;
-  }
-
-  Future<ResponseType> post<RequestType, ResponseType>(String path, {RequestType? data}) async {
-    final response = await dio.post(path, data: data);
-    return response.data as ResponseType;
+    return response.data;
   }
 }
 

@@ -1,11 +1,20 @@
+import 'dart:convert';
+
 import 'package:itune_test_app/model/itune_res.dart';
 import 'package:itune_test_app/utils/dio_client.dart';
 
 class ItuneRepository {
   DioClient client = DioClient();
 
-  Future<void> getSongs({Map<String, dynamic>? queryParameters}) async {
-    final path = "https://itunes.apple.com/search?term=Talyor+Swift&limit=10&media=music";
-    await client.get<ItuneResponse>(path);
+  Future<ItuneResponse> getSongs({Map<String, dynamic>? queryParameters, int? limit}) async {
+    assert(limit != 0);
+    try {
+      limit ??= 200;
+      final path = "https://itunes.apple.com/search?term=Talyor+Swift&limit=$limit&media=music";
+      final data = await client.get(path);
+      return ItuneResponse.fromJson(json.decode(data));
+    } catch (e) {
+      rethrow;
+    }
   }
 }
