@@ -1,0 +1,58 @@
+name: itune_test_app
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Assets #
+  cupertino_icons: ^1.0.8
+  flutter_svg: ^2.0.12
+
+  # Routing #
+  go_router: ^14.6.2
+
+  # State Management #
+  flutter_bloc: ^8.1.6
+  bloc: ^8.1.4
+
+  # Caches #
+  cached_network_image: ^3.4.1
+  flutter_cache_manager: ^3.4.1
+
+  # Network #
+  dio: ^5.7.0
+  internet_connection_checker: ^3.0.1
+
+  # Utilize #
+  freezed: ^2.5.7
+  freezed_annotation: ^2.4.4
+  json_annotation: ^4.9.0
+  equatable: ^2.0.5
+  intl: ^0.19.0
+
+  # Logging #
+  talker_flutter: ^4.5.2
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.13
+  json_serializable: ^6.9.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/fonts/
+  fonts:
+    - family: jf-openhun
+      fonts:
+        - asset: assets/fonts/jf-openhuninn-2.1.ttf
+          weight: 400
