@@ -7,6 +7,19 @@ part of 'music.dart';
 // **************************************************************************
 
 _$MusicImpl _$$MusicImplFromJson(Map<String, dynamic> json) => _$MusicImpl(
+      wrapperType: json['wrapperType'] as String?,
+      kind: json['kind'] as String?,
+      artistId: (json['artistId'] as num?)?.toInt(),
+      collectionId: (json['collectionId'] as num?)?.toInt(),
+      trackId: (json['trackId'] as num?)?.toInt(),
+      artistName: json['artistName'] as String?,
+      collectionName: json['collectionName'] as String?,
+      trackName: json['trackName'] as String?,
+      collectionCensoredName: json['collectionCensoredName'] as String?,
+      trackCensoredName: json['trackCensoredName'] as String?,
+      artistViewUrl: json['artistViewUrl'] as String?,
+      collectionViewUrl: json['collectionViewUrl'] as String?,
+      trackViewUrl: json['trackViewUrl'] as String?,
       previewUrl: json['previewUrl'] as String?,
       artworkUrl30: json['artworkUrl30'] as String?,
       artworkUrl60: json['artworkUrl60'] as String?,
@@ -31,6 +44,19 @@ _$MusicImpl _$$MusicImplFromJson(Map<String, dynamic> json) => _$MusicImpl(
 
 Map<String, dynamic> _$$MusicImplToJson(_$MusicImpl instance) =>
     <String, dynamic>{
+      'wrapperType': instance.wrapperType,
+      'kind': instance.kind,
+      'artistId': instance.artistId,
+      'collectionId': instance.collectionId,
+      'trackId': instance.trackId,
+      'artistName': instance.artistName,
+      'collectionName': instance.collectionName,
+      'trackName': instance.trackName,
+      'collectionCensoredName': instance.collectionCensoredName,
+      'trackCensoredName': instance.trackCensoredName,
+      'artistViewUrl': instance.artistViewUrl,
+      'collectionViewUrl': instance.collectionViewUrl,
+      'trackViewUrl': instance.trackViewUrl,
       'previewUrl': instance.previewUrl,
       'artworkUrl30': instance.artworkUrl30,
       'artworkUrl60': instance.artworkUrl60,
