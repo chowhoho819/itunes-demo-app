@@ -8,6 +8,19 @@ part 'music.g.dart';
 @freezed
 class Music with _$Music {
   const factory Music({
+    @JsonKey(name: 'wrapperType') String? wrapperType,
+    @JsonKey(name: 'kind') String? kind,
+    @JsonKey(name: 'artistId') int? artistId,
+    @JsonKey(name: 'collectionId') int? collectionId,
+    @JsonKey(name: 'trackId') int? trackId,
+    @JsonKey(name: 'artistName') String? artistName,
+    @JsonKey(name: 'collectionName') String? collectionName,
+    @JsonKey(name: 'trackName') String? trackName,
+    @JsonKey(name: 'collectionCensoredName') String? collectionCensoredName,
+    @JsonKey(name: 'trackCensoredName') String? trackCensoredName,
+    @JsonKey(name: 'artistViewUrl') String? artistViewUrl,
+    @JsonKey(name: 'collectionViewUrl') String? collectionViewUrl,
+    @JsonKey(name: 'trackViewUrl') String? trackViewUrl,
     @JsonKey(name: 'previewUrl') String? previewUrl,
     @JsonKey(name: 'artworkUrl30') String? artworkUrl30,
     @JsonKey(name: 'artworkUrl60') String? artworkUrl60,

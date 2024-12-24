@@ -20,6 +20,32 @@ Music _$MusicFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Music {
+  @JsonKey(name: 'wrapperType')
+  String? get wrapperType => throw _privateConstructorUsedError;
+  @JsonKey(name: 'kind')
+  String? get kind => throw _privateConstructorUsedError;
+  @JsonKey(name: 'artistId')
+  int? get artistId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'collectionId')
+  int? get collectionId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'trackId')
+  int? get trackId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'artistName')
+  String? get artistName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'collectionName')
+  String? get collectionName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'trackName')
+  String? get trackName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'collectionCensoredName')
+  String? get collectionCensoredName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'trackCensoredName')
+  String? get trackCensoredName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'artistViewUrl')
+  String? get artistViewUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: 'collectionViewUrl')
+  String? get collectionViewUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: 'trackViewUrl')
+  String? get trackViewUrl => throw _privateConstructorUsedError;
   @JsonKey(name: 'previewUrl')
   String? get previewUrl => throw _privateConstructorUsedError;
   @JsonKey(name: 'artworkUrl30')
@@ -72,7 +98,20 @@ abstract class $MusicCopyWith<$Res> {
       _$MusicCopyWithImpl<$Res, Music>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'previewUrl') String? previewUrl,
+      {@JsonKey(name: 'wrapperType') String? wrapperType,
+      @JsonKey(name: 'kind') String? kind,
+      @JsonKey(name: 'artistId') int? artistId,
+      @JsonKey(name: 'collectionId') int? collectionId,
+      @JsonKey(name: 'trackId') int? trackId,
+      @JsonKey(name: 'artistName') String? artistName,
+      @JsonKey(name: 'collectionName') String? collectionName,
+      @JsonKey(name: 'trackName') String? trackName,
+      @JsonKey(name: 'collectionCensoredName') String? collectionCensoredName,
+      @JsonKey(name: 'trackCensoredName') String? trackCensoredName,
+      @JsonKey(name: 'artistViewUrl') String? artistViewUrl,
+      @JsonKey(name: 'collectionViewUrl') String? collectionViewUrl,
+      @JsonKey(name: 'trackViewUrl') String? trackViewUrl,
+      @JsonKey(name: 'previewUrl') String? previewUrl,
       @JsonKey(name: 'artworkUrl30') String? artworkUrl30,
       @JsonKey(name: 'artworkUrl60') String? artworkUrl60,
       @JsonKey(name: 'artworkUrl100') String? artworkUrl100,
@@ -107,6 +146,19 @@ class _$MusicCopyWithImpl<$Res, $Val extends Music>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? wrapperType = freezed,
+    Object? kind = freezed,
+    Object? artistId = freezed,
+    Object? collectionId = freezed,
+    Object? trackId = freezed,
+    Object? artistName = freezed,
+    Object? collectionName = freezed,
+    Object? trackName = freezed,
+    Object? collectionCensoredName = freezed,
+    Object? trackCensoredName = freezed,
+    Object? artistViewUrl = freezed,
+    Object? collectionViewUrl = freezed,
+    Object? trackViewUrl = freezed,
     Object? previewUrl = freezed,
     Object? artworkUrl30 = freezed,
     Object? artworkUrl60 = freezed,
@@ -127,6 +179,58 @@ class _$MusicCopyWithImpl<$Res, $Val extends Music>
     Object? isStreamable = freezed,
   }) {
     return _then(_value.copyWith(
+      wrapperType: freezed == wrapperType
+          ? _value.wrapperType
+          : wrapperType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      kind: freezed == kind
+          ? _value.kind
+          : kind // ignore: cast_nullable_to_non_nullable
+              as String?,
+      artistId: freezed == artistId
+          ? _value.artistId
+          : artistId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      collectionId: freezed == collectionId
+          ? _value.collectionId
+          : collectionId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      trackId: freezed == trackId
+          ? _value.trackId
+          : trackId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      artistName: freezed == artistName
+          ? _value.artistName
+          : artistName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      collectionName: freezed == collectionName
+          ? _value.collectionName
+          : collectionName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      trackName: freezed == trackName
+          ? _value.trackName
+          : trackName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      collectionCensoredName: freezed == collectionCensoredName
+          ? _value.collectionCensoredName
+          : collectionCensoredName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      trackCensoredName: freezed == trackCensoredName
+          ? _value.trackCensoredName
+          : trackCensoredName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      artistViewUrl: freezed == artistViewUrl
+          ? _value.artistViewUrl
+          : artistViewUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      collectionViewUrl: freezed == collectionViewUrl
+          ? _value.collectionViewUrl
+          : collectionViewUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      trackViewUrl: freezed == trackViewUrl
+          ? _value.trackViewUrl
+          : trackViewUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       previewUrl: freezed == previewUrl
           ? _value.previewUrl
           : previewUrl // ignore: cast_nullable_to_non_nullable
@@ -211,7 +315,20 @@ abstract class _$$MusicImplCopyWith<$Res> implements $MusicCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'previewUrl') String? previewUrl,
+      {@JsonKey(name: 'wrapperType') String? wrapperType,
+      @JsonKey(name: 'kind') String? kind,
+      @JsonKey(name: 'artistId') int? artistId,
+      @JsonKey(name: 'collectionId') int? collectionId,
+      @JsonKey(name: 'trackId') int? trackId,
+      @JsonKey(name: 'artistName') String? artistName,
+      @JsonKey(name: 'collectionName') String? collectionName,
+      @JsonKey(name: 'trackName') String? trackName,
+      @JsonKey(name: 'collectionCensoredName') String? collectionCensoredName,
+      @JsonKey(name: 'trackCensoredName') String? trackCensoredName,
+      @JsonKey(name: 'artistViewUrl') String? artistViewUrl,
+      @JsonKey(name: 'collectionViewUrl') String? collectionViewUrl,
+      @JsonKey(name: 'trackViewUrl') String? trackViewUrl,
+      @JsonKey(name: 'previewUrl') String? previewUrl,
       @JsonKey(name: 'artworkUrl30') String? artworkUrl30,
       @JsonKey(name: 'artworkUrl60') String? artworkUrl60,
       @JsonKey(name: 'artworkUrl100') String? artworkUrl100,
@@ -244,6 +361,19 @@ class __$$MusicImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? wrapperType = freezed,
+    Object? kind = freezed,
+    Object? artistId = freezed,
+    Object? collectionId = freezed,
+    Object? trackId = freezed,
+    Object? artistName = freezed,
+    Object? collectionName = freezed,
+    Object? trackName = freezed,
+    Object? collectionCensoredName = freezed,
+    Object? trackCensoredName = freezed,
+    Object? artistViewUrl = freezed,
+    Object? collectionViewUrl = freezed,
+    Object? trackViewUrl = freezed,
     Object? previewUrl = freezed,
     Object? artworkUrl30 = freezed,
     Object? artworkUrl60 = freezed,
@@ -264,6 +394,58 @@ class __$$MusicImplCopyWithImpl<$Res>
     Object? isStreamable = freezed,
   }) {
     return _then(_$MusicImpl(
+      wrapperType: freezed == wrapperType
+          ? _value.wrapperType
+          : wrapperType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      kind: freezed == kind
+          ? _value.kind
+          : kind // ignore: cast_nullable_to_non_nullable
+              as String?,
+      artistId: freezed == artistId
+          ? _value.artistId
+          : artistId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      collectionId: freezed == collectionId
+          ? _value.collectionId
+          : collectionId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      trackId: freezed == trackId
+          ? _value.trackId
+          : trackId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      artistName: freezed == artistName
+          ? _value.artistName
+          : artistName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      collectionName: freezed == collectionName
+          ? _value.collectionName
+          : collectionName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      trackName: freezed == trackName
+          ? _value.trackName
+          : trackName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      collectionCensoredName: freezed == collectionCensoredName
+          ? _value.collectionCensoredName
+          : collectionCensoredName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      trackCensoredName: freezed == trackCensoredName
+          ? _value.trackCensoredName
+          : trackCensoredName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      artistViewUrl: freezed == artistViewUrl
+          ? _value.artistViewUrl
+          : artistViewUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      collectionViewUrl: freezed == collectionViewUrl
+          ? _value.collectionViewUrl
+          : collectionViewUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      trackViewUrl: freezed == trackViewUrl
+          ? _value.trackViewUrl
+          : trackViewUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       previewUrl: freezed == previewUrl
           ? _value.previewUrl
           : previewUrl // ignore: cast_nullable_to_non_nullable
@@ -344,7 +526,20 @@ class __$$MusicImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MusicImpl extends _Music {
   const _$MusicImpl(
-      {@JsonKey(name: 'previewUrl') this.previewUrl,
+      {@JsonKey(name: 'wrapperType') this.wrapperType,
+      @JsonKey(name: 'kind') this.kind,
+      @JsonKey(name: 'artistId') this.artistId,
+      @JsonKey(name: 'collectionId') this.collectionId,
+      @JsonKey(name: 'trackId') this.trackId,
+      @JsonKey(name: 'artistName') this.artistName,
+      @JsonKey(name: 'collectionName') this.collectionName,
+      @JsonKey(name: 'trackName') this.trackName,
+      @JsonKey(name: 'collectionCensoredName') this.collectionCensoredName,
+      @JsonKey(name: 'trackCensoredName') this.trackCensoredName,
+      @JsonKey(name: 'artistViewUrl') this.artistViewUrl,
+      @JsonKey(name: 'collectionViewUrl') this.collectionViewUrl,
+      @JsonKey(name: 'trackViewUrl') this.trackViewUrl,
+      @JsonKey(name: 'previewUrl') this.previewUrl,
       @JsonKey(name: 'artworkUrl30') this.artworkUrl30,
       @JsonKey(name: 'artworkUrl60') this.artworkUrl60,
       @JsonKey(name: 'artworkUrl100') this.artworkUrl100,
@@ -367,6 +562,45 @@ class _$MusicImpl extends _Music {
   factory _$MusicImpl.fromJson(Map<String, dynamic> json) =>
       _$$MusicImplFromJson(json);
 
+  @override
+  @JsonKey(name: 'wrapperType')
+  final String? wrapperType;
+  @override
+  @JsonKey(name: 'kind')
+  final String? kind;
+  @override
+  @JsonKey(name: 'artistId')
+  final int? artistId;
+  @override
+  @JsonKey(name: 'collectionId')
+  final int? collectionId;
+  @override
+  @JsonKey(name: 'trackId')
+  final int? trackId;
+  @override
+  @JsonKey(name: 'artistName')
+  final String? artistName;
+  @override
+  @JsonKey(name: 'collectionName')
+  final String? collectionName;
+  @override
+  @JsonKey(name: 'trackName')
+  final String? trackName;
+  @override
+  @JsonKey(name: 'collectionCensoredName')
+  final String? collectionCensoredName;
+  @override
+  @JsonKey(name: 'trackCensoredName')
+  final String? trackCensoredName;
+  @override
+  @JsonKey(name: 'artistViewUrl')
+  final String? artistViewUrl;
+  @override
+  @JsonKey(name: 'collectionViewUrl')
+  final String? collectionViewUrl;
+  @override
+  @JsonKey(name: 'trackViewUrl')
+  final String? trackViewUrl;
   @override
   @JsonKey(name: 'previewUrl')
   final String? previewUrl;
@@ -424,7 +658,7 @@ class _$MusicImpl extends _Music {
 
   @override
   String toString() {
-    return 'Music(previewUrl: $previewUrl, artworkUrl30: $artworkUrl30, artworkUrl60: $artworkUrl60, artworkUrl100: $artworkUrl100, collectionPrice: $collectionPrice, trackPrice: $trackPrice, releaseDate: $releaseDate, collectionExplicitness: $collectionExplicitness, trackExplicitness: $trackExplicitness, discCount: $discCount, discNumber: $discNumber, trackCount: $trackCount, trackNumber: $trackNumber, trackTimeMillis: $trackTimeMillis, country: $country, currency: $currency, primaryGenreName: $primaryGenreName, isStreamable: $isStreamable)';
+    return 'Music(wrapperType: $wrapperType, kind: $kind, artistId: $artistId, collectionId: $collectionId, trackId: $trackId, artistName: $artistName, collectionName: $collectionName, trackName: $trackName, collectionCensoredName: $collectionCensoredName, trackCensoredName: $trackCensoredName, artistViewUrl: $artistViewUrl, collectionViewUrl: $collectionViewUrl, trackViewUrl: $trackViewUrl, previewUrl: $previewUrl, artworkUrl30: $artworkUrl30, artworkUrl60: $artworkUrl60, artworkUrl100: $artworkUrl100, collectionPrice: $collectionPrice, trackPrice: $trackPrice, releaseDate: $releaseDate, collectionExplicitness: $collectionExplicitness, trackExplicitness: $trackExplicitness, discCount: $discCount, discNumber: $discNumber, trackCount: $trackCount, trackNumber: $trackNumber, trackTimeMillis: $trackTimeMillis, country: $country, currency: $currency, primaryGenreName: $primaryGenreName, isStreamable: $isStreamable)';
   }
 
   @override
@@ -432,6 +666,30 @@ class _$MusicImpl extends _Music {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MusicImpl &&
+            (identical(other.wrapperType, wrapperType) ||
+                other.wrapperType == wrapperType) &&
+            (identical(other.kind, kind) || other.kind == kind) &&
+            (identical(other.artistId, artistId) ||
+                other.artistId == artistId) &&
+            (identical(other.collectionId, collectionId) ||
+                other.collectionId == collectionId) &&
+            (identical(other.trackId, trackId) || other.trackId == trackId) &&
+            (identical(other.artistName, artistName) ||
+                other.artistName == artistName) &&
+            (identical(other.collectionName, collectionName) ||
+                other.collectionName == collectionName) &&
+            (identical(other.trackName, trackName) ||
+                other.trackName == trackName) &&
+            (identical(other.collectionCensoredName, collectionCensoredName) ||
+                other.collectionCensoredName == collectionCensoredName) &&
+            (identical(other.trackCensoredName, trackCensoredName) ||
+                other.trackCensoredName == trackCensoredName) &&
+            (identical(other.artistViewUrl, artistViewUrl) ||
+                other.artistViewUrl == artistViewUrl) &&
+            (identical(other.collectionViewUrl, collectionViewUrl) ||
+                other.collectionViewUrl == collectionViewUrl) &&
+            (identical(other.trackViewUrl, trackViewUrl) ||
+                other.trackViewUrl == trackViewUrl) &&
             (identical(other.previewUrl, previewUrl) ||
                 other.previewUrl == previewUrl) &&
             (identical(other.artworkUrl30, artworkUrl30) ||
@@ -471,26 +729,40 @@ class _$MusicImpl extends _Music {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      previewUrl,
-      artworkUrl30,
-      artworkUrl60,
-      artworkUrl100,
-      collectionPrice,
-      trackPrice,
-      releaseDate,
-      collectionExplicitness,
-      trackExplicitness,
-      discCount,
-      discNumber,
-      trackCount,
-      trackNumber,
-      trackTimeMillis,
-      country,
-      currency,
-      primaryGenreName,
-      isStreamable);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        wrapperType,
+        kind,
+        artistId,
+        collectionId,
+        trackId,
+        artistName,
+        collectionName,
+        trackName,
+        collectionCensoredName,
+        trackCensoredName,
+        artistViewUrl,
+        collectionViewUrl,
+        trackViewUrl,
+        previewUrl,
+        artworkUrl30,
+        artworkUrl60,
+        artworkUrl100,
+        collectionPrice,
+        trackPrice,
+        releaseDate,
+        collectionExplicitness,
+        trackExplicitness,
+        discCount,
+        discNumber,
+        trackCount,
+        trackNumber,
+        trackTimeMillis,
+        country,
+        currency,
+        primaryGenreName,
+        isStreamable
+      ]);
 
   /// Create a copy of Music
   /// with the given fields replaced by the non-null parameter values.
@@ -510,7 +782,21 @@ class _$MusicImpl extends _Music {
 
 abstract class _Music extends Music {
   const factory _Music(
-      {@JsonKey(name: 'previewUrl') final String? previewUrl,
+      {@JsonKey(name: 'wrapperType') final String? wrapperType,
+      @JsonKey(name: 'kind') final String? kind,
+      @JsonKey(name: 'artistId') final int? artistId,
+      @JsonKey(name: 'collectionId') final int? collectionId,
+      @JsonKey(name: 'trackId') final int? trackId,
+      @JsonKey(name: 'artistName') final String? artistName,
+      @JsonKey(name: 'collectionName') final String? collectionName,
+      @JsonKey(name: 'trackName') final String? trackName,
+      @JsonKey(name: 'collectionCensoredName')
+      final String? collectionCensoredName,
+      @JsonKey(name: 'trackCensoredName') final String? trackCensoredName,
+      @JsonKey(name: 'artistViewUrl') final String? artistViewUrl,
+      @JsonKey(name: 'collectionViewUrl') final String? collectionViewUrl,
+      @JsonKey(name: 'trackViewUrl') final String? trackViewUrl,
+      @JsonKey(name: 'previewUrl') final String? previewUrl,
       @JsonKey(name: 'artworkUrl30') final String? artworkUrl30,
       @JsonKey(name: 'artworkUrl60') final String? artworkUrl60,
       @JsonKey(name: 'artworkUrl100') final String? artworkUrl100,
@@ -533,6 +819,45 @@ abstract class _Music extends Music {
 
   factory _Music.fromJson(Map<String, dynamic> json) = _$MusicImpl.fromJson;
 
+  @override
+  @JsonKey(name: 'wrapperType')
+  String? get wrapperType;
+  @override
+  @JsonKey(name: 'kind')
+  String? get kind;
+  @override
+  @JsonKey(name: 'artistId')
+  int? get artistId;
+  @override
+  @JsonKey(name: 'collectionId')
+  int? get collectionId;
+  @override
+  @JsonKey(name: 'trackId')
+  int? get trackId;
+  @override
+  @JsonKey(name: 'artistName')
+  String? get artistName;
+  @override
+  @JsonKey(name: 'collectionName')
+  String? get collectionName;
+  @override
+  @JsonKey(name: 'trackName')
+  String? get trackName;
+  @override
+  @JsonKey(name: 'collectionCensoredName')
+  String? get collectionCensoredName;
+  @override
+  @JsonKey(name: 'trackCensoredName')
+  String? get trackCensoredName;
+  @override
+  @JsonKey(name: 'artistViewUrl')
+  String? get artistViewUrl;
+  @override
+  @JsonKey(name: 'collectionViewUrl')
+  String? get collectionViewUrl;
+  @override
+  @JsonKey(name: 'trackViewUrl')
+  String? get trackViewUrl;
   @override
   @JsonKey(name: 'previewUrl')
   String? get previewUrl;
