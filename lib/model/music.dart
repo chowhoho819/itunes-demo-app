@@ -45,4 +45,18 @@ class Music with _$Music {
 
   // this allow creation of getter.
   const Music._();
+
+  /// get and upscale the image from that url base on itunes provided images, if no image returned, place holder will be display.
+  String get getImageUrl {
+    late String path;
+    if (artworkUrl100 == null && artworkUrl60 == null && artworkUrl30 == null) {
+      // itune place holder image
+      path = "https://discussions.apple.com/content/attachment/926013040";
+    }
+    return _resizeImageUrl(artworkUrl100 ?? artworkUrl60 ?? artworkUrl30 ?? path, 250, 250);
+  }
+
+  String _resizeImageUrl(String url, int width, int height) {
+    return url.replaceAll(RegExp(r'\d+x\d+'), '${width}x${height}');
+  }
 }

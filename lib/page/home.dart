@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:itune_test_app/bloc/home_bloc/bloc.dart';
 import 'package:itune_test_app/component/generic_button.dart';
+import 'package:itune_test_app/component/network_image.dart';
 
 import '../component/warning_container.dart';
 import '../model/music.dart';
@@ -47,8 +48,13 @@ class HomeSuccessView extends StatelessWidget {
     return ListView.separated(
       itemCount: count,
       itemBuilder: (context, index) {
-        return Row(
-          children: [],
+        final Music item = items[index];
+        return ListTile(
+          contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+          leading: CachedImage(imageUrl: item.getImageUrl),
+          title: Text(item.trackName ?? "不詳"),
+          subtitle: Text(item.artistName ?? "不詳"),
+          trailing: Icon(Icons.play_arrow),
         );
       },
       separatorBuilder: (context, index) => Divider(),
