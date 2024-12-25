@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:itune_test_app/bloc/home_bloc/bloc.dart';
+import 'package:itune_test_app/component/generic_button.dart';
 
+import '../component/warning_container.dart';
 import '../model/music.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,10 +14,7 @@ class HomePage extends StatelessWidget {
     return HomeScafford(child: BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return switch (state.status) {
-          HomeStatus.success => HomeSuccessView(
-              count: state.recordCount,
-              items: state.musics,
-            ),
+          HomeStatus.success => HomeSuccessView(count: state.recordCount, items: state.musics),
           HomeStatus.loading => HomeLoadingView(),
           HomeStatus.empty => HomeEmptyView(),
           HomeStatus.failure => HomeFailureView(),
@@ -48,7 +47,9 @@ class HomeSuccessView extends StatelessWidget {
     return ListView.separated(
       itemCount: count,
       itemBuilder: (context, index) {
-        return Text(items[index].artistName ?? "");
+        return Row(
+          children: [],
+        );
       },
       separatorBuilder: (context, index) => Divider(),
     );
@@ -66,8 +67,8 @@ class HomeLoadingView extends StatelessWidget {
         spacing: 15,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CircularProgressIndicator(),
-          Text("提取數據中"),
+          CircularProgressIndicator(color: Colors.blueAccent),
+          Text("請求數據中"),
         ],
       ),
     );
@@ -79,7 +80,24 @@ class HomeFailureView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      alignment: Alignment.center,
+      child: Column(
+        spacing: 15,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Warning(warningText: "數據請求失敗，\n請確保網絡處在穩定環境中。"),
+          GenericButton(
+            onTap: () {
+              context.read<HomeBloc>().add(HomeFetchEvent(limit: 200));
+            },
+            backgroundColor: Colors.blueAccent,
+            fontColor: Colors.white,
+            text: "重新請求",
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -88,6 +106,23 @@ class HomeEmptyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      alignment: Alignment.center,
+      child: Column(
+        spacing: 15,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Warning(warningText: "沒有相關資料", warningIcon: Icons.question_mark_rounded),
+          GenericButton(
+            onTap: () {
+              context.read<HomeBloc>().add(HomeFetchEvent(limit: 200));
+            },
+            backgroundColor: Colors.blueAccent,
+            fontColor: Colors.white,
+            text: "重新請求",
+          )
+        ],
+      ),
+    );
   }
 }

@@ -27,6 +27,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   /// Fetch Itune Song, path parameter is for testing that with empty result response
   /// (path parameter will be deleted when merging into main).
   Future<void> fetchSong(HomeFetchEvent event, Emitter<HomeState> emit) async {
+    emit(HomeState(musics: [], status: HomeStatus.loading, recordCount: 0)); // trigger loading
     try {
       await Future.delayed(Duration(seconds: 2));
       ItuneResponse temp = await ituneRepository.getSongs(path: event.path, limit: event.limit);
