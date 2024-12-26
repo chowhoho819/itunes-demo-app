@@ -4,6 +4,7 @@ import 'package:itune_test_app/bloc/home_bloc/bloc.dart';
 import 'package:itune_test_app/component/generic_button.dart';
 import 'package:itune_test_app/component/network_image.dart';
 
+import '../component/search_app_bar.dart';
 import '../component/warning_container.dart';
 import '../model/music.dart';
 
@@ -32,7 +33,7 @@ class HomeScafford extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: SearchAppBar(),
       body: child,
     );
   }
@@ -53,7 +54,7 @@ class HomeSuccessView extends StatelessWidget {
           contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
           leading: CachedImage(imageUrl: item.getImageUrl),
           title: Text(item.trackName ?? "不詳"),
-          subtitle: Text(item.artistName ?? "不詳"),
+          subtitle: Text("${item.collectionName ?? ""} - ${item.artistName ?? "不詳"}"),
           trailing: Icon(Icons.play_arrow),
         );
       },
@@ -119,14 +120,6 @@ class HomeEmptyView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Warning(warningText: "沒有相關資料", warningIcon: Icons.question_mark_rounded),
-          GenericButton(
-            onTap: () {
-              context.read<HomeBloc>().add(HomeFetchEvent(limit: 200));
-            },
-            backgroundColor: Colors.blueAccent,
-            fontColor: Colors.white,
-            text: "重新請求",
-          )
         ],
       ),
     );
