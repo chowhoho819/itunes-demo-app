@@ -58,7 +58,7 @@ void main() {
 
   group('HomeBloc', () {
     test('initial state is correct', () {
-      expect(homeBloc.state, const HomeState(status: HomeStatus.loading, musics: []));
+      expect(homeBloc.state, HomeState(status: HomeStatus.loading, musics: [], recordCount: 0, sortIndicator: SortState.emptyState));
     });
 
     blocTest<HomeBloc, HomeState>(
@@ -67,8 +67,8 @@ void main() {
       act: (bloc) => bloc.add(HomeFetchEvent(limit: 1)),
       wait: Duration(milliseconds: 500),
       expect: () => [
-        const HomeState(status: HomeStatus.loading, musics: []),
-        HomeState(status: HomeStatus.success, musics: [Music.fromJson(expectedResult)]),
+        HomeState(status: HomeStatus.loading, musics: [], recordCount: 0, sortIndicator: SortState.emptyState),
+        HomeState(status: HomeStatus.success, musics: [Music.fromJson(expectedResult)], recordCount: 1, sortIndicator: SortState.emptyState),
       ],
     );
 
@@ -77,8 +77,8 @@ void main() {
       build: () => homeBloc..add(HomeInitialEvent()),
       act: (bloc) => bloc.add(HomeFetchEvent(limit: 0)),
       expect: () => [
-        const HomeState(status: HomeStatus.loading, musics: []),
-        const HomeState(status: HomeStatus.failure, musics: []),
+        HomeState(status: HomeStatus.loading, musics: [], recordCount: 0, sortIndicator: SortState.emptyState),
+        HomeState(status: HomeStatus.failure, musics: [], recordCount: 0, sortIndicator: SortState.emptyState),
       ],
     );
 
@@ -88,8 +88,8 @@ void main() {
       act: (bloc) => bloc.add(HomeFetchEvent(limit: 1, path: "https://itunes.apple.com/search?term=xfdsdfsdf&limit=1&media=music")),
       wait: Duration(milliseconds: 500),
       expect: () => [
-        const HomeState(status: HomeStatus.loading, musics: []),
-        const HomeState(status: HomeStatus.empty, musics: []),
+        HomeState(status: HomeStatus.loading, musics: [], recordCount: 0, sortIndicator: SortState.emptyState),
+        HomeState(status: HomeStatus.empty, musics: [], recordCount: 0, sortIndicator: SortState.emptyState),
       ],
     );
   });

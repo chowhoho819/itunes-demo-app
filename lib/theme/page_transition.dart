@@ -41,3 +41,28 @@ CustomTransitionPage pageTransaction(Widget child) {
     },
   );
 }
+
+CustomTransitionPage modalTransaction(Widget child) {
+  return CustomTransitionPage(
+    child: child,
+    transitionsBuilder: (
+      context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      child,
+    ) {
+      return SlideTransition(
+        position: Tween<Offset>(
+          begin: const Offset(1.0, 0.0),
+          end: Offset.zero,
+        ).animate(
+          CurvedAnimation(
+            parent: animation,
+            curve: Curves.easeOut,
+          ),
+        ),
+        child: child,
+      );
+    },
+  );
+}
