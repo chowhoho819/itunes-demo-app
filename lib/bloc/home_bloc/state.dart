@@ -34,12 +34,13 @@ final class HomeState extends Equatable {
 }
 
 enum SortStatus {
-  asc(Icons.arrow_downward),
-  desc(Icons.arrow_upward),
-  empty(Icons.clear_all);
+  asc(Icons.arrow_downward, "倒序"),
+  desc(Icons.arrow_upward, "順序"),
+  empty(Icons.clear_all, "");
 
-  const SortStatus(this.icon);
+  const SortStatus(this.icon, this.text);
   final IconData icon;
+  final String text;
 }
 
 class SortState {

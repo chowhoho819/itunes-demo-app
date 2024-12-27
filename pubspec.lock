@@ -46,6 +46,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
+  audio_session:
+    dependency: transitive
+    description:
+      name: audio_session
+      sha256: b2a26ba8b7efa1790d6460e82971fde3e398cfbe2295df9dea22f3499d2c12a7
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.23"
   bloc:
     dependency: "direct main"
     description:
@@ -206,22 +214,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.19.0"
-  connectivity_plus:
-    dependency: transitive
-    description:
-      name: connectivity_plus
-      sha256: e0817759ec6d2d8e57eb234e6e57d2173931367a865850c7acea40d4b4f9c27d
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.1.1"
-  connectivity_plus_platform_interface:
-    dependency: transitive
-    description:
-      name: connectivity_plus_platform_interface
-      sha256: "42657c1715d48b167930d5f34d00222ac100475f73d10162ddf43e714932f204"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.1"
   convert:
     dependency: transitive
     description:
@@ -270,14 +262,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.7"
-  dbus:
-    dependency: transitive
-    description:
-      name: dbus
-      sha256: "365c771ac3b0e58845f39ec6deebc76e3276aa9922b0cc60840712094d9047ac"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.7.10"
   diff_match_patch:
     dependency: transitive
     description:
@@ -477,14 +461,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.1"
-  internet_connection_checker:
-    dependency: "direct main"
-    description:
-      name: internet_connection_checker
-      sha256: ee08f13d8b13b978affe226e9274ca3ba7a9bed07c9479e8ae245f785b7a488a
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.1"
   intl:
     dependency: "direct main"
     description:
@@ -525,6 +501,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.9.0"
+  just_audio:
+    dependency: "direct main"
+    description:
+      name: just_audio
+      sha256: a49e7120b95600bd357f37a2bb04cd1e88252f7cdea8f3368803779b925b1049
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.42"
+  just_audio_platform_interface:
+    dependency: transitive
+    description:
+      name: just_audio_platform_interface
+      sha256: "0243828cce503c8366cc2090cefb2b3c871aa8ed2f520670d76fd47aa1ab2790"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.3.0"
+  just_audio_web:
+    dependency: transitive
+    description:
+      name: just_audio_web
+      sha256: "9a98035b8b24b40749507687520ec5ab404e291d2b0937823ff45d92cb18d448"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.13"
   leak_tracker:
     dependency: transitive
     description:
@@ -629,14 +629,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
-  nm:
-    dependency: transitive
-    description:
-      name: nm
-      sha256: "2c9aae4127bdc8993206464fcc063611e0e36e72018696cd9631023a31b24254"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.5.0"
   node_preamble:
     dependency: transitive
     description:
@@ -1042,6 +1034,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
+  url_launcher:
+    dependency: "direct main"
+    description:
+      name: url_launcher
+      sha256: "9d06212b1362abc2f0f0d78e6f09f726608c74e3b9462e8368bb03314aa8d603"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.3.1"
+  url_launcher_android:
+    dependency: transitive
+    description:
+      name: url_launcher_android
+      sha256: "6fc2f56536ee873eeb867ad176ae15f304ccccc357848b351f6f0d8d4a40d193"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.3.14"
+  url_launcher_ios:
+    dependency: transitive
+    description:
+      name: url_launcher_ios
+      sha256: "16a513b6c12bb419304e72ea0ae2ab4fed569920d1c7cb850263fe3acc824626"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.3.2"
   url_launcher_linux:
     dependency: transitive
     description:
@@ -1050,6 +1066,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
+  url_launcher_macos:
+    dependency: transitive
+    description:
+      name: url_launcher_macos
+      sha256: "17ba2000b847f334f16626a574c702b196723af2a289e7a93ffcb79acff855c2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.2"
   url_launcher_platform_interface:
     dependency: transitive
     description:

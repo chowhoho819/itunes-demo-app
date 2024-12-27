@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:itune_test_app/bloc/home_bloc/bloc.dart';
 import 'package:itune_test_app/component/generic_button.dart';
 import 'package:itune_test_app/component/network_image.dart';
+import 'package:itune_test_app/page/song_preview/song_preview.dart';
 import 'package:itune_test_app/theme/font_style.dart';
 
 import 'components/search_app_bar.dart';
@@ -83,6 +85,9 @@ class HomeSuccessView extends StatelessWidget {
       itemBuilder: (context, index) {
         final Music item = items[index];
         return ListTile(
+          onTap: () {
+            TriggerSongPreview(music: item).display(context);
+          },
           contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
           leading: CachedImage(imageUrl: item.getImageUrl),
           title: Text(item.trackName ?? "不詳"),
@@ -233,7 +238,7 @@ class _HomeFABViewState extends State<HomeFABView> with SingleTickerProviderStat
         sizeFactor: _animation,
         axis: Axis.horizontal,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           decoration: BoxDecoration(color: Colors.blueGrey, borderRadius: BorderRadius.circular(10)),
           child: Column(
             spacing: 10,
@@ -241,7 +246,7 @@ class _HomeFABViewState extends State<HomeFABView> with SingleTickerProviderStat
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SortButton(
-                icon: state.sortIndicator.song.icon,
+                sorter: state.sortIndicator.song,
                 text: "歌曲名稱",
                 state: state,
                 onTap: () {
@@ -249,7 +254,7 @@ class _HomeFABViewState extends State<HomeFABView> with SingleTickerProviderStat
                 },
               ),
               SortButton(
-                icon: state.sortIndicator.album.icon,
+                sorter: state.sortIndicator.album,
                 text: "專輯名稱",
                 state: state,
                 onTap: () {
@@ -265,13 +270,13 @@ class _HomeFABViewState extends State<HomeFABView> with SingleTickerProviderStat
 }
 
 class SortButton extends StatelessWidget {
-  final IconData icon;
+  final SortStatus sorter;
   final String text;
   final Function() onTap;
   final HomeState state;
   const SortButton({
     super.key,
-    required this.icon,
+    required this.sorter,
     required this.text,
     required this.state,
     required this.onTap,
@@ -279,16 +284,24 @@ class SortButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Row(
-        spacing: 15,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(text, style: AppText.jfR18White),
-          Icon(icon, color: Colors.white),
-        ],
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        color: Colors.grey.shade800,
+      ),
+      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+      child: InkWell(
+        onTap: onTap,
+        child: Row(
+          spacing: 15,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(text, style: AppText.jfR18White),
+            Icon(sorter.icon, color: Colors.white),
+            Text(sorter.text, style: AppText.jfR14White),
+          ],
+        ),
       ),
     );
   }

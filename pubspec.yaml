@@ -27,7 +27,6 @@ dependencies:
 
   # Network #
   dio: ^5.7.0
-  internet_connection_checker: ^3.0.1
 
   # Utilize #
   freezed: ^2.5.7
@@ -38,6 +37,8 @@ dependencies:
   stream_transform: ^2.1.1
   bloc_concurrency: ^0.2.5
   flutter_screenutil: ^5.9.3
+  just_audio: ^0.9.42
+  url_launcher: ^6.3.1
 
   # Logging #
   talker_flutter: ^4.5.2
