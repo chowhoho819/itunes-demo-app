@@ -10,6 +10,10 @@
 
 `$ flutter run`
 
+#### To Build the application, Run
+
+`$ flutter build`
+
 ## Features
 
 Fetch Song List from Itunes. \
@@ -21,14 +25,14 @@ Proivde Sorting and Filtering for Fetched Song List.
 ### ViewModel(BLOC) Implementation.
 
 &#x2611; Feature of Fetching Songs; \
-&#x2610; Feature of Searching Songs; \
-&#x2610; Feature of Sorting Songs;
+&#x2611; Feature of Searching Songs; \
+&#x2611; Feature of Sorting Songs;
 
 ### UI Implementation.
 
 &#x2611; UI Component of Fetching Songs; \
-&#x2610; UI Component of Searching Songs; \
-&#x2610; UI Component of Sorting Songs;
+&#x2611; UI Component of Searching Songs; \
+&#x2611; UI Component of Sorting Songs;
 
 ## External Libaries
 
@@ -40,10 +44,10 @@ Proivde Sorting and Filtering for Fetched Song List.
 - cached_network_image: ^3.4.1
 - flutter_cache_manager: ^3.4.1
 - dio: ^5.7.0
-- internet_connection_checker: ^3.0.1
 - freezed: ^2.5.7
 - freezed_annotation: ^2.4.4
 - json_annotation: ^4.9.0
 - equatable: ^2.0.5
 - intl: ^0.19.0
 - talker_flutter: ^4.5.2
+- just_audio: ^0.9.42
