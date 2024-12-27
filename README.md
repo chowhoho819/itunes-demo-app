@@ -1,3 +1,14 @@
+# Tested Device
+Galaxy S21 Ultra 5G
+SM-G9200
+IPhone 12PRO
+
+## Reminder 
+IOS is not capable to sign due to my mac device is owned by company,\
+i am willing record a video and demo the process of deploying ios application\
+
+You can contact me via rickychow.48852@gmail.com\ 
+
 # Itunes Demo Test
 
 ### Flutter Version - v3.27.1 (Stable)
@@ -12,7 +23,7 @@
 
 #### To Build the application, Run
 
-`$ flutter build`
+`$ flutter build apk`
 
 ## Features
 
@@ -51,3 +62,4 @@ Proivde Sorting and Filtering for Fetched Song List.
 - intl: ^0.19.0
 - talker_flutter: ^4.5.2
 - just_audio: ^0.9.42
+
