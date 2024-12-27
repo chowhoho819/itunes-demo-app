@@ -28,8 +28,10 @@ class _ItuneAppState extends State<ItuneApp> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (context) => HomeBloc()..add(HomeInitialEvent()))],
-      child: MaterialApp.router(
-        routerConfig: route,
+      child: SafeArea(
+        child: MaterialApp.router(
+          routerConfig: route,
+        ),
       ),
     );
   }
