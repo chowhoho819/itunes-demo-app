@@ -12,7 +12,7 @@
 
 #### To Build the application, Run
 
-`$ flutter build`
+`$ flutter build apk`
 
 ## Features
 
