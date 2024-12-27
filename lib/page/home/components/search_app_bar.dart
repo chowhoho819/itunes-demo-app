@@ -28,7 +28,7 @@ class _SearchAppBarState extends State<SearchAppBar> {
     return SafeArea(
       child: Container(
         alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 10),
         height: widget.preferredSize.height,
         width: widget.preferredSize.width,
         child: Row(
@@ -38,6 +38,12 @@ class _SearchAppBarState extends State<SearchAppBar> {
                 controller: _searchTextController,
                 onChanged: (value) {
                   context.read<HomeBloc>().add(HomeSearchEvent(searchText: value.toLowerCase()));
+                },
+                onTapOutside: (callback) {
+                  FocusScopeNode currentFocus = FocusScope.of(context);
+                  if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+                    currentFocus.focusedChild?.unfocus();
+                  }
                 },
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),

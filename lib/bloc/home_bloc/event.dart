@@ -28,3 +28,11 @@ class HomeSearchEvent extends HomeEvent {
   @override
   List<Object?> get props => [];
 }
+
+class HomeSortEvent extends HomeEvent {
+  final SortState sortState;
+  const HomeSortEvent({required this.sortState});
+
+  @override
+  List<Object?> get props => [];
+}

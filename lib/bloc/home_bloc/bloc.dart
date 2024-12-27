@@ -1,6 +1,7 @@
 library;
 
 import 'package:bloc_concurrency/bloc_concurrency.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:itune_test_app/model/itune_res.dart';
@@ -20,9 +21,9 @@ EventTransformer<E> throttleDroppable<E>(Duration duration) {
   };
 }
 
-final emptyState = HomeState(status: HomeStatus.empty, musics: [], recordCount: 0, sortStatus: 0);
-final loadingState = HomeState(status: HomeStatus.loading, musics: [], recordCount: 0, sortStatus: 0);
-final failureState = HomeState(status: HomeStatus.failure, musics: [], recordCount: 0, sortStatus: 0);
+final emptyState = HomeState(status: HomeStatus.empty, musics: [], recordCount: 0, sortIndicator: SortState.emptyState);
+final loadingState = HomeState(status: HomeStatus.loading, musics: [], recordCount: 0, sortIndicator: SortState.emptyState);
+final failureState = HomeState(status: HomeStatus.failure, musics: [], recordCount: 0, sortIndicator: SortState.emptyState);
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   late ItuneRepository ituneRepository;
@@ -33,6 +34,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeInitialEvent>(init);
     on<HomeFetchEvent>(fetchSong, transformer: throttleDroppable(Duration(milliseconds: 100)));
     on<HomeSearchEvent>(onSearchingSong, transformer: throttleDroppable(Duration(milliseconds: 50)));
+    on<HomeSortEvent>(onSortSong);
   }
 
   Future<void> init(HomeInitialEvent event, Emitter<HomeState> emit) async {
@@ -72,16 +74,24 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     String searchText = event.searchText.trim().toLowerCase();
     if (cachedMusic.isNotEmpty) {
       final searchedSongs = cachedMusic.where((song) {
-        return (song.trackName?.toLowerCase().contains(searchText) == true ||
-            song.collectionName?.toLowerCase().contains(searchText) == true);
+        return (song.trackName?.toLowerCase().contains(searchText) == true || song.collectionName?.toLowerCase().contains(searchText) == true);
       }).toList();
       if (searchedSongs.isNotEmpty) {
-        emit(state.copyWith(status: HomeStatus.success, musics: searchedSongs, recordCount: searchedSongs.length));
+        emit(state.copyWith(status: HomeStatus.success, musics: searchedSongs, recordCount: searchedSongs.length, sortIndicator: SortState.emptyState));
       } else {
         emit(emptyState);
       }
     } else {
       emit(emptyState);
+    }
+  }
+
+  Future<void> onSortSong(HomeSortEvent event, Emitter<HomeState> emit) async {
+    if (event.sortState.album == SortStatus.empty && event.sortState.song == SortStatus.empty) {
+      emit(state.copyWith(musics: cachedMusic, sortIndicator: SortState.emptyState));
+    } else {
+      final sortedList = event.sortState.sortWith(state.musics);
+      emit(state.copyWith(musics: sortedList, sortIndicator: event.sortState));
     }
   }
 }
